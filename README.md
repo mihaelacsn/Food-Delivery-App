@@ -19,7 +19,7 @@ The User Profile Management service has the role of administering processes such
    
 + ### Service 2: The Catalogue with Restaurants & (each restaurants') Menu
 
-Provides a list of available restaurants, and for each of them the menu. For each Restaurant it is presented a short description and for the food, the ingridients list, prices.
+Provides a list of available restaurants, and for each of them the menu. For each Restaurant it is presented a short description and for the food, the ingridients list, prices. The list of places and menu can also be updated.
  
 + ### Service 3:
 
