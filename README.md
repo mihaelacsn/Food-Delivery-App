@@ -1,4 +1,4 @@
-# Food-Delivery-App
+# Food Delivery Platform
 A platform that tends towards providing food directly from restaurants and directly to costumer's door. 
 
 <hr>
@@ -21,7 +21,9 @@ The User Profile Management service has the role of administering processes such
 
 Provides a list of available restaurants, and for each of them the menu. For each Restaurant it is presented a short description and for the food, the ingridients list, prices. The list of places and menu can also be updated.
  
-+ ### Service 3:
++ ### Service 3: Order Status & Tracking
+
+Has the responsability to give live information about the order status, with a feedback-type messagess, such as "The Order was received", "Your food is preparing", "The delivery was picked up", "The delivery is on it's way".
 
 <hr>
 
