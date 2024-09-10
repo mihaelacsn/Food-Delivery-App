@@ -1,5 +1,5 @@
 # Food Delivery Platform
-A platform that tends towards providing food directly from restaurants and directly to costumer's door. 
+A platform that tends towards providing food directly from restaurants and directly to customer's door. 
 
 <hr>
 
