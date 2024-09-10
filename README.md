@@ -5,6 +5,15 @@ A platform that tends towards providing food directly from restaurants and direc
 
 ## Application Suitability
 
+Reasons why this platform is a good idea to be implemented through distributed systems is represented by a list of advantages in using this computing environment.
+
+1. Scalability:
+2. Real-time Data Processing:
+3. High Availability:
+4. Performance and Speed:
+5. Geographical Distribution:
+
+
 <hr>
 
 ## Service Boundaries
