@@ -42,7 +42,7 @@ Provides a list of available restaurants, and for each of them the menu. For eac
 
 Has the responsability to give live information about the order status, with a feedback-type messagess, such as "The Order was received", "Your food is preparing", "The delivery was picked up", "The delivery is on it's way".
 
-
+![alt text](https://github.com/mihaelacsn/Food-Delivery-App/blob/main/img/Untitled%20Diagram.drawio.png)
 
 ## Technology Stack and Communication Patterns
 
