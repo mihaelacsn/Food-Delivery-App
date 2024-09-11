@@ -42,7 +42,6 @@ Provides a list of available restaurants, and for each of them the menu. For eac
 
 Has the responsability to give live information about the order status, with a feedback-type messagess, such as "The Order was received", "Your food is preparing", "The delivery was picked up", "The delivery is on it's way".
 
-![Untitled Diagram drawio](https://github.com/user-attachments/assets/c44f5661-09ba-4387-9c51-382df4d2559a)
 
 
 ## Technology Stack and Communication Patterns
