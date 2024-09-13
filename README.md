@@ -46,6 +46,7 @@ Has the responsability to give live information about the order status, with a f
 
 ## Technology Stack and Communication Patterns
 
+![alt text]()
 <hr>
 
 ## Data Management Design
