@@ -46,7 +46,7 @@ Has the responsability to give live information about the order status, with a f
 
 ## Technology Stack and Communication Patterns
 
-![alt text]()
+![alt text](https://github.com/mihaelacsn/Food-Delivery-App/blob/main/img/export(1).png)
 <hr>
 
 ## Data Management Design
