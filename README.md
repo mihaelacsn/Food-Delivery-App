@@ -58,9 +58,10 @@ When customers want to find food options, they can search by dish name, restaura
 <hr>
 
 ## Data Management Design
-1. ### **User’s Profile Management Service:** - uses a relational SQL database (PostgreSQL) for structured, normalized data storage(with users' data).
+1. ### **User’s Profile Management Service:** - uses a relational SQL database (PostgreSQL) for structured, normalized data storage(with users' data). <br>
+   ->Data Format: Request/Response: JSON. Data Storage: SQL database with a structured schema.
    * **EndPoints:**
-     - For registering users: POST /register:
+     - POST /register:
        * *Request:*
     ```
     {
@@ -70,9 +71,149 @@ When customers want to find food options, they can search by dish name, restaura
       "phone": "string"
     }
     ```
-     - 
-2. ### **The Catalog Service (Restaurant & Menu):**
+      * *Response:*
+     ```
+     {
+      "userId": "string",
+      "message": "User successfully registered"
+    }
+    ```
+     - POST /login (authenticates a user and returns an authentication token).
+       * *Request:*
+    ```
+    {
+    "email": "string",
+    "password": "string"
+    }
+    ```
+      * *Response:*
+     ```
+     {
+      "token": "jwt_token",
+      "expiresIn": "3600"
+    }
+    ```
+     - GET /profile/{userId} (fetches the user profile details).
+       * No request body.
+       * *Response:*
+     ```
+     {
+      "userId": "string",
+      "username": "string",
+      "email": "string",
+      "phone": "string",
+      "address": "string"
+      }
+    ```
+2. ### **The Catalog Service (Restaurant & Menu):**<br>
+  ->Data Format: Request/Response: JSON for RESTful APIs, WebSocket for real-time updates. Data Storage: NoSQL database (document-based) to store flexible restaurant and menu data.
+  * **EndPoints:**
+     - GET /restaurants (returns a list of all available restaurants):
+       * *Request:* no request body
+   
+      * *Response:*
+     ```
+     {
+    "restaurantId": "string",
+    "name": "string",
+    "location": "string",
+    "cuisine": "string"
+    }
+    ```
+     - GET /restaurant/{restaurantId}/menu (fetches the menu for a specific restaurant):
+       * *Request:* no request body.
+      * *Response:*
+     ```
+     {
+      "menuItemId": "string",
+      "name": "string",
+      "price": "number",
+      "description": "string",
+      "category": "string"
+    }
+    ```
+     - WebSocket /restaurants-updates (subscribes clients to real-time updates for restaurant or menu changes):
+       * *Request:* WebSocket connection, no payload required.
+       * *Response:*
+     ```
+     {
+      "eventType": "menuUpdate",
+      "restaurantId": "string",
+      "menuItems": [
+        {
+          "menuItemId": "string",
+          "name": "string",
+          "price": "number",
+          "description": "string"
+       }
+       ]
+      }
+    ```
 3. ### **Order Status + Tracking Service:**
+   ->Data Format: Request/Response: JSON for RESTful APIs, WebSocket for real-time tracking, and Messaging Queue for asynchronous updates. Data Storage: Graph NoSQL database (e.g., Neo4j) to model complex relationships like user-to-restaurant-to-order-to-delivery.
+   * **EndPoints:**
+     - POST /orders (creates new order):
+       * *Request:*
+    ```
+    {
+      "userId": "string",
+      "restaurantId": "string",
+      "items": [
+        {
+          "menuItemId": "string",
+          "quantity": "number"
+        }
+      ],
+      "deliveryAddress": "string"
+    }
+    ```
+      * *Response:*
+     ```
+     {
+      "orderId": "string",
+      "status": "Received",
+      "estimatedDeliveryTime": "30 mins"
+     }
+    ```
+     - GET /order/{orderId}/status (fetches the current status of the order):
+       * *Request:* No request body.
+      * *Response:*
+     ```
+     {
+      "orderId": "string",
+      "status": "Preparing",
+      "estimatedDeliveryTime": "30 mins",
+      "deliveryDriver": {
+        "driverId": "string",
+        "name": "string",
+        "location": {
+          "latitude": "number",
+          "longitude": "number"
+        }
+      }
+    }
+    ```
+     - WebSocket /order-tracking/{orderId}
+       * Request: WebSocket connection.
+       * *Response:*
+     ```
+     {
+       "orderId": "string",
+       "status": "On the Way",
+       "location": {
+       "latitude": "number",
+       "longitude": "number"
+        }
+      }
+    ```
+     - Messaging Queue (RabbitMQ, push a message to the queue when the order status changes):
+   ```
+   {
+      "orderId": "string",
+      "status": "Delivered",
+      "deliveryTime": "20:45"
+    }
+   ```
 <hr>
 
 ## Deployment and Scaling Set Up
