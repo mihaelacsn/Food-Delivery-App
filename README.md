@@ -43,6 +43,14 @@ Provides a list of available restaurants, and for each of them the menu. For eac
 Has the responsability to give live information about the order status, with a feedback-type messagess, such as "The Order was received", "Your food is preparing", "The delivery was picked up", "The delivery is on it's way".
 
 ![alt text](https://github.com/mihaelacsn/Food-Delivery-App/blob/main/img/Untitled%20Diagram.drawio.png)
+<br><br>
+<hr>
+Various services connect through an API gateway, which takes care of load balancing and directs requests to the right services. It also handles user authentication and authorization, providing a token ID for ongoing communication. Services like user registration, order management, and payment processing rely on transactional databases. The system will utilize a relational database that can efficiently handle multiple orders and users at the same time. Details about restaurants, menus, prices, and promotions will be stored in ElasticSearch, a JSON document storage solution that offers quick and scalable search capabilities, making it easy for customers to find menus and cuisines. The ordering process involves choosing dishes, calculating costs, and processing payments through various payment gateways. After an order is placed, the details are sent to a central message queue, like RabbitMQ or Redis Queue. The order processing unit picks up the order details, alerts the chosen restaurant, and looks for nearby delivery partners. Customers get push notifications about their orders and can track the status and live location of the delivery person through the order processing and tracking service. The delivery person then collects the order and brings it to the customer, providing real-time updates on the estimated arrival time.<br><br>
+The admin can quickly add new restaurants by entering details like the restaurant name, city, address, postal code, type of cuisine, hours of operation, owner info, and payment splits. All this data gets saved in a relational database. <br>
+
+After a restaurant is added, the system creates a unique ID for it, which is then used in Elasticsearch to keep track of things like menus, prices, and prep times. Restaurants have the ability to update, add, or remove their menus, prices, and preparation times whenever they need to.<br>
+
+When customers want to find food options, they can search by dish name, restaurant name, or location, and Elasticsearch handles the query. Elasticsearch is a powerful, scalable open-source search and analytics engine that allows for fast and efficient searching through large amounts of data almost instantly. This makes it super easy for customers to discover the restaurants and dishes they want.<br>
 
 ## Technology Stack and Communication Patterns
 
