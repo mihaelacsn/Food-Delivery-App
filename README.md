@@ -58,7 +58,21 @@ When customers want to find food options, they can search by dish name, restaura
 <hr>
 
 ## Data Management Design
-
+1. ### **User’s Profile Management Service:** - uses a relational SQL database (PostgreSQL) for structured, normalized data storage(with users' data).
+   * **EndPoints:**
+     - For registering users: POST /register:
+       * *Request:*
+    ```
+    {
+      "username": "string",
+      "email": "string",
+      "password": "string",
+      "phone": "string"
+    }
+    ```
+     - 
+2. ### **The Catalog Service (Restaurant & Menu):**
+3. ### **Order Status + Tracking Service:**
 <hr>
 
 ## Deployment and Scaling Set Up
