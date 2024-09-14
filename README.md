@@ -246,18 +246,10 @@ When customers want to find food options, they can search by dish name, restaura
   2. ***Service Discovery & Networking***
     * API Gateway: e.g., NGINX, Kong, or AWS API Gateway, for routing requests between the client and microservices. It can also handle load balancing, caching, and security.
     * Service Mesh: Istio or Linkerd, to manage microservice communication, provide observability, and enforce security.
-  3. ***Orchestration (Kubernetes)***
-    **Kubernetes Setup:**
-      * Kubernetes (K8s) can be used to manage deployment, scaling, and operations of your containers.
-      * Creating Helm charts for easier deployment and version control of our services.
-      * Using Kubernetes Services to expose microservices to the network (e.g., NodePort or LoadBalancer).
-Deployment Strategy: Defining Kubernetes Deployments for each microservice with HORIZONTAL scaling in mind.<br>
-Horizontal Pod Autoscaling (HPA) can scale the microservices based on CPU/memory usage or custom metrics.
-
-  4. ***Load Balancing & Scaling***
+  3. ***Load Balancing & Scaling***
       * Horizontal Scaling: Each microservice can scale independently.We will use Kubernetes’ Horizontal Pod Autoscaler to scale based on traffic or resource utilization. This ensures that during high traffic (like meal times for food delivery), your system can handle more requests.
       * Vertical Scaling: Adjusting the resources (CPU, memory) for individual containers if they need more processing power.
-  5. ***Database Scaling & Management***
+  4. ***Database Scaling & Management***
         * For User Profile Management, we will ensure our authentication and registration process can handle scaling with a high number of users.
         * The Catalogue Service will be used with a Document type database, therefore each restaurant being stored as a separate document with nested arrays for the menu. As the list of the restaurants gets larger, sharding would be considered to horizontally scale the database.
         * The Order Status & Tracking Service should be optimized for real-time updates. Using a message broker (like RabbitMQ or Kafka) between microservices could handle asynchronous communication and data streams for live order updates.
