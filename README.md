@@ -37,6 +37,12 @@ The User Profile Management service has the role of administering processes such
 + ### Service 2: The Catalogue with Restaurants & (each restaurants') Menu
 
 Provides a list of available restaurants, and for each of them the menu. For each Restaurant it is presented a short description and for the food, the ingridients list, prices. The list of places and menu can also be updated.
+ Here, in The Catalog (Restaurant & Menu), we integrate with Tasty API to enhance the menu and restaurant data. The Tasty API provides access to a vast collection of recipes, dishes, and food-related content that can enrich the user experience on our platform.
+ When a restaurant lists a particular dish, our system will query the Tasty API to retrieve relevant information, including:
+  * Recipe ingredients.
+  * Cooking steps (if applicable).
+  *  Nutritional breakdown (calories, protein, fat, etc.).
+  *  Related videos or media content.
  
 + ### Service 3: Order Status & Tracking
 
@@ -120,17 +126,32 @@ When customers want to find food options, they can search by dish name, restaura
     "cuisine": "string"
     }
     ```
-     - GET /restaurant/{restaurantId}/menu (fetches the menu for a specific restaurant):
+     - GET /restaurant/{restaurantId}/menu-with-details :
        * *Request:* no request body.
       * *Response:*
      ```
-     {
-      "menuItemId": "string",
-      "name": "string",
-      "price": "number",
-      "description": "string",
-      "category": "string"
-    }
+     [
+      {
+        "menuItemId": "string",
+        "name": "string",
+        "price": "number",
+        "description": "string",
+        "tastyDetails": {
+          "recipeId": "string",
+          "ingredients": ["ingredient1", "ingredient2"],
+          "cookingSteps": ["step1", "step2"],
+          "nutrition": {
+            "calories": "200",
+            "protein": "10g",
+            "fat": "5g"
+          },
+          "media": {
+            "imageUrl": "url",
+            "videoUrl": "url"
+          }
+        }
+      }
+    ]
     ```
      - WebSocket /restaurants-updates (subscribes clients to real-time updates for restaurant or menu changes):
        * *Request:* WebSocket connection, no payload required.
