@@ -54,7 +54,7 @@ When customers want to find food options, they can search by dish name, restaura
 
 ## Technology Stack and Communication Patterns
 
-![alt text](https://github.com/mihaelacsn/Food-Delivery-App/blob/main/img/export(1).png)
+![alt text](https://github.com/mihaelacsn/Food-Delivery-App/blob/main/img/export(2).png)
 <hr>
 
 ## Data Management Design
