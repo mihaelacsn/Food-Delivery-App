@@ -56,7 +56,7 @@ _**Endpoint Interaction Rules**_
 ### Running the Docker Tests
 1. In the project root, the docker image is created using ```docker-compose build```.
 2. Starting the services/running the containers with ```docker-compose up```.
-3. To access the containers (to run tests), run unit and integration tests via: <br> ```docker exec -it <service-container-name> /bin/sh <br> #Inside the container <br> pytest
+3. To access the containers (to run tests), run unit and integration tests via: <br> ```docker exec -it <service-container-name> /bin/sh <br> #Inside the container <br> pytest```
 4. Once all the tests are complete, the containers can be stopped and removed using ```docker-compose down```.
 5. The data volumes should be configured in ```docker-compose.yml``` if needed to persist data across container restarts.
 
