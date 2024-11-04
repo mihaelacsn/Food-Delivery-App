@@ -39,7 +39,7 @@ _**Endpoint Interaction Rules**_
 **Order of Access:**
 
   _Step 1_: Register a user (```POST /register``` in User Profile Management Service). <br>
- _ Step 2_: Login to retrieve JWT token (```POST /login``` in User Profile Management Service). <br>
+  _Step 2_: Login to retrieve JWT token (```POST /login``` in User Profile Management Service). <br>
   _Step 3_: Access restaurant catalog (```GET /restaurants``` in Restaurant Catalog Service). <br>
   _Step 4_: Place an order (```POST /orders``` in Order Status & Tracking Service). <br>
 
