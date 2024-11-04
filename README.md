@@ -2,7 +2,8 @@
 A platform that tends towards providing food directly from restaurants and directly to customer's door. 
 
 <hr>
-
+## Setup and Execution Instruction
+<hr>
 ## Application Suitability
 
 Reasons why this platform is a good idea to be implemented through distributed systems is represented by a list of advantages in using this computing environment.
