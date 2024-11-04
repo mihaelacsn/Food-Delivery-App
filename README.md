@@ -117,6 +117,92 @@ After a restaurant is added, the system creates a unique ID for it, which is the
 
 When customers want to find food options, they can search by dish name, restaurant name, or location, and Elasticsearch handles the query. Elasticsearch is a powerful, scalable open-source search and analytics engine that allows for fast and efficient searching through large amounts of data almost instantly. This makes it super easy for customers to discover the restaurants and dishes they want.<br>
 
+<hr>
+
+The new features to add:
+1. _Loyalty and Rewards Program_: a system to reward users for frequent orders, giving points, discounts, or free delivery based on the number of orders or spending level. It could be integrated as a new microservice to handle reward logic and point calculations independently, especially if it requires tracking complex interactions across the platform. Another way it could be integrated within the User Profile Management Service, which can keep track of user points and redeemable rewards in the user profile.
+
+<br>
+
+**Endpoint 1: Check Loyalty Points** - retrieves the loyalty points accumulated by the user.
+* Method: GET
+* URL: /api/rewards/{userId}/points
+* Path Parameters: ``` userId```: ID of the user.
+* Response Format: json
+
+   ```
+   {
+        "userId": "string",
+        "points": "integer"
+   }
+  ```
+**Endpoint 2: Redeem Points** - redeems loyalty points to apply a discount on the user’s next order.
+* Method: POST
+* URL: /api/rewards/redeem
+* Request Body: json
+
+```
+{
+
+    "userId": "string",
+    "pointsToRedeem": "integer"
+}
+```
+* Response Format: json
+
+```
+{
+    "userId": "string",
+    "pointsRedeemed": "integer",
+    "newPointsBalance": "integer"
+}
+```
+2. _Review and Rating Service_: service that allows users to review and rate restaurants and menu items, which can be useful for recommendations.
+
+<br>
+
+* Base URL: /api/reviews
+  
+<br>
+
+**Endpoint 1: Add Review for a Restaurant** - adds a review for a specific restaurant.
+* Method: POST
+* URL: /api/reviews/restaurant/{restaurantId}
+* Path Parameters: ```restaurantId```: ID of the restaurant to be reviewed.
+* Request Body: json
+
+```
+{
+    "userId": "string",
+    "rating": "integer", // Range from 1-5
+    "review": "string"
+}
+```
+Response Format:
+
+json
+
+    {
+        "reviewId": "string",
+        "status": "string"
+    }
+
+**Endpoint 2: Fetch Restaurant Reviews** - retrieves all reviews for a specific restaurant.
+* Method: GET
+* URL: /api/reviews/restaurant/{restaurantId}
+* Path Parameters: ```restaurantId```: ID of the restaurant.
+* Response Format: json
+
+```
+[
+    {
+        "userId": "string",
+        "rating": "integer",
+        "review": "string",
+        "timestamp": "string"
+    }
+]
+```
 ## Technology Stack and Communication Patterns
 
 ![alt text](https://github.com/mihaelacsn/Food-Delivery-App/blob/main/img/export(2).png)
