@@ -5,6 +5,61 @@ A platform that tends towards providing food directly from restaurants and direc
 
 ## Setup and Execution Instruction
 
+After installing docker and cloning the repository, we should have (create) a ```.env``` file in each microservice directory with required environment variables such as database connection strings, ports, and JWT secrets. Build docker images using ```docker-compose build``` and run them with ```docker-compose up``` (or ```docker compose up --build```). We can verify that each of our services is running by accessing the URLs. The project can be stopped via ```docker compose down```.
+<br>
+Database and service connection credential in file should look like:
+```
+# User Profile Management Service
+USER_PROFILE_DATABASE_URL=postgresql://your_username:your_password@postgres_users:5432/your_db
+
+# Restaurant Catalog Service
+RESTAURANT_DATABASE_URL=mongodb://your_username:your_password@mongo_restaurants:27017/your_db
+
+# Order Status & Tracking Service
+ORDER_DATABASE_URL=neo4j://your_username:your_password@neo4j_orders:7687/your_db
+
+# RabbitMQ Configuration
+RABBITMQ_USER=your_username
+RABBITMQ_PASS=your_password
+
+# Other service-specific variables
+JWT_SECRET=your_jwt_secret_key
+```
+
+<hr>
+
+### Testing and Accessing the Endpoints
+
+_**Endpoint Interaction Rules**_
+
+1. User Creation: A user profile must be created before placing an order.
+2. Order Creation: Orders can only be placed if the user is authenticated and the corresponding restaurant exists in the catalog.
+3. WebSocket Connections: To connect to order tracking via WebSocket, the order must be created first.
+
+**Order of Access:**
+
+  _Step 1_: Register a user (```POST /register``` in User Profile Management Service).
+ _ Step 2_: Login to retrieve JWT token (```POST /login``` in User Profile Management Service).
+  _Step 3_: Access restaurant catalog (```GET /restaurants``` in Restaurant Catalog Service).
+  _Step 4_: Place an order (```POST /orders``` in Order Status & Tracking Service).
+
+**Testing Endpoints:**
+
+  1. (can/should) Use tools like Postman or cURL to test HTTP endpoints. Then,
+  2. Ensure the JWT token from ```/login``` is included in the Authorization header for secure endpoints.
+
+**Testing WebSockets:**
+
+  1. Use WebSocket clients like wscat or Postman to test WebSocket connections.
+  2. Open connections to ```/restaurants-updates``` and ```/order-tracking/{orderId}``` to verify real-time data.
+
+### Running the Docker Tests
+1. In the project root, the docker image is created using ```docker-compose build```.
+2. Starting the services/running the containers with ```docker-compose up```.
+3. To access the containers (to run tests), run unit and integration tests via: <br> ```docker exec -it <service-container-name> /bin/sh <br> #Inside the container <br> pytest
+4. Once all the tests are complete, the containers can be stopped and removed using ```docker-compose down```.
+5. The data volumes should be configured in ```docker-compose.yml``` if needed to persist data across container restarts.
+
 <hr>
 
 ## Application Suitability
