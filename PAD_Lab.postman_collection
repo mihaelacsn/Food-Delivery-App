@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "94fd3291-701c-4e4f-8d7f-c28850a81010",
+		"name": "PAD_Lab1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37721864"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8001/api/orders/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 1,\r\n  \"product_name\": \"Book ABC\",\r\n  \"order_status\": \"pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8001/api/orders/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": 1,\r\n  \"product_name\": \"Book ABC\",\r\n  \"order_status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"orders",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/orders/e070bd7c-b3fd-4694-a359-7f5fc8154b77/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"orders",
+						"e070bd7c-b3fd-4694-a359-7f5fc8154b77",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"orders",
+								"6952dbcb-063d-45c8-aecc-641365cf2f74",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/status?status=delivered",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/status?status=delivered",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"orders",
+						"6952dbcb-063d-45c8-aecc-641365cf2f74",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "delivered"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/status?status=delivered",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/status?status=delivered",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"orders",
+								"6952dbcb-063d-45c8-aecc-641365cf2f74",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "delivered"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"orders",
+						"6952dbcb-063d-45c8-aecc-641365cf2f74",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/orders/6952dbcb-063d-45c8-aecc-641365cf2f74/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"orders",
+								"6952dbcb-063d-45c8-aecc-641365cf2f74",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8083/api/deliveries/",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/users/",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/auth/login/",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/users/1/",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/users/1/",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/api/deliveries/{delivery_id}/status?status={newStatus}",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
